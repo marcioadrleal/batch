@@ -16,6 +16,7 @@ import br.com.batch.senac.dto.DadosBancariosDto;
 import br.com.batch.senac.dto.DependentesDto;
 import br.com.batch.senac.dto.PessoaisDto;
 import br.com.batch.senac.dto.UnidadeDto;
+import br.com.batch.senac.repository.ColaboradorRepository;
 
 @Service
 public class MigracaoService {
@@ -23,7 +24,8 @@ public class MigracaoService {
 	@Autowired
     private  ApiClient apiClient;
 	
-    private final ColaboradorRepository colaboradorRepository;
+	@Autowired
+    private ColaboradorRepository colaboradorRepository;
     
     @Autowired
     private  ExecutorService executor;
