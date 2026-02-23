@@ -1,0 +1,287 @@
+package br.com.batch.senac.dto;
+
+import java.util.Date;
+
+public class ColaboradorResumoDTO {
+
+	private Long idUnidade;
+	private Long idColaborador;
+	private String nome;
+	private String nroRg;
+	private String rgComplemento;
+	private String rgEmissor;
+	private String rgEstado;
+	private Date rgData;
+	private String nrCpf;
+	private String cpfComplemento;
+	private Date dataDemissao;
+	private String email;
+	private String sigla;
+	private String situacao;
+	private String codigoDdd;
+	private String telefone;
+	private String celularDdd;
+	private String celularNumero;
+	private Date dataAtualizacao;
+	private String dcCargo;
+	private String nroPis;
+	private Long idCargo;
+	private String tipoColab;
+	private String paisNascimento;
+	private String estadoNascimento;
+	private String cidadeNascimento;
+	private String nacionalidade;
+	private String nomeUsual;
+	private Date dataAdmissao;
+	private Date dataAtualizacaoCadastral;
+	private String identificacaoUsuario;
+
+	public Long getIdUnidade() {
+		return idUnidade;
+	}
+
+	public void setIdUnidade(Long idUnidade) {
+		this.idUnidade = idUnidade;
+	}
+
+	public Long getIdColaborador() {
+		return idColaborador;
+	}
+
+	public void setIdColaborador(Long idColaborador) {
+		this.idColaborador = idColaborador;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getNroRg() {
+		return nroRg;
+	}
+
+	public void setNroRg(String nroRg) {
+		this.nroRg = nroRg;
+	}
+
+	public String getRgComplemento() {
+		return rgComplemento;
+	}
+
+	public void setRgComplemento(String rgComplemento) {
+		this.rgComplemento = rgComplemento;
+	}
+
+	public String getRgEmissor() {
+		return rgEmissor;
+	}
+
+	public void setRgEmissor(String rgEmissor) {
+		this.rgEmissor = rgEmissor;
+	}
+
+	public String getRgEstado() {
+		return rgEstado;
+	}
+
+	public void setRgEstado(String rgEstado) {
+		this.rgEstado = rgEstado;
+	}
+
+	public Date getRgData() {
+		return rgData;
+	}
+
+	public void setRgData(Date rgData) {
+		this.rgData = rgData;
+	}
+
+	public String getNrCpf() {
+		return nrCpf;
+	}
+
+	public void setNrCpf(String nrCpf) {
+		this.nrCpf = nrCpf;
+	}
+
+	public String getCpfComplemento() {
+		return cpfComplemento;
+	}
+
+	public void setCpfComplemento(String cpfComplemento) {
+		this.cpfComplemento = cpfComplemento;
+	}
+
+	public Date getDataDemissao() {
+		return dataDemissao;
+	}
+
+	public void setDataDemissao(Date dataDemissao) {
+		this.dataDemissao = dataDemissao;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+
+	public String getCodigoDdd() {
+		return codigoDdd;
+	}
+
+	public void setCodigoDdd(String codigoDdd) {
+		this.codigoDdd = codigoDdd;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getCelularDdd() {
+		return celularDdd;
+	}
+
+	public void setCelularDdd(String celularDdd) {
+		this.celularDdd = celularDdd;
+	}
+
+	public String getCelularNumero() {
+		return celularNumero;
+	}
+
+	public void setCelularNumero(String celularNumero) {
+		this.celularNumero = celularNumero;
+	}
+
+	public Date getDataAtualizacao() {
+		return dataAtualizacao;
+	}
+
+	public void setDataAtualizacao(Date dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
+	}
+
+	public String getDcCargo() {
+		return dcCargo;
+	}
+
+	public void setDcCargo(String dcCargo) {
+		this.dcCargo = dcCargo;
+	}
+
+	public String getNroPis() {
+		return nroPis;
+	}
+
+	public void setNroPis(String nroPis) {
+		this.nroPis = nroPis;
+	}
+
+	public Long getIdCargo() {
+		return idCargo;
+	}
+
+	public void setIdCargo(Long idCargo) {
+		this.idCargo = idCargo;
+	}
+
+	public String getTipoColab() {
+		return tipoColab;
+	}
+
+	public void setTipoColab(String tipoColab) {
+		this.tipoColab = tipoColab;
+	}
+
+	public String getPaisNascimento() {
+		return paisNascimento;
+	}
+
+	public void setPaisNascimento(String paisNascimento) {
+		this.paisNascimento = paisNascimento;
+	}
+
+	public String getEstadoNascimento() {
+		return estadoNascimento;
+	}
+
+	public void setEstadoNascimento(String estadoNascimento) {
+		this.estadoNascimento = estadoNascimento;
+	}
+
+	public String getCidadeNascimento() {
+		return cidadeNascimento;
+	}
+
+	public void setCidadeNascimento(String cidadeNascimento) {
+		this.cidadeNascimento = cidadeNascimento;
+	}
+
+	public String getNacionalidade() {
+		return nacionalidade;
+	}
+
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
+	}
+
+	public String getNomeUsual() {
+		return nomeUsual;
+	}
+
+	public void setNomeUsual(String nomeUsual) {
+		this.nomeUsual = nomeUsual;
+	}
+
+	public Date getDataAdmissao() {
+		return dataAdmissao;
+	}
+
+	public void setDataAdmissao(Date dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+
+	public Date getDataAtualizacaoCadastral() {
+		return dataAtualizacaoCadastral;
+	}
+
+	public void setDataAtualizacaoCadastral(Date dataAtualizacaoCadastral) {
+		this.dataAtualizacaoCadastral = dataAtualizacaoCadastral;
+	}
+
+	public String getIdentificacaoUsuario() {
+		return identificacaoUsuario;
+	}
+
+	public void setIdentificacaoUsuario(String identificacaoUsuario) {
+		this.identificacaoUsuario = identificacaoUsuario;
+	}
+
+}

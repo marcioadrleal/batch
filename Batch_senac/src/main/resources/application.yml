@@ -1,0 +1,15 @@
+spring:
+  application:
+       name: Batch_Senac
+
+  jpa:
+    properties:
+       hibernate:
+          jdbc:
+            batch_size: 100
+       open-in-view: false      
+
+benner:
+  api:
+    base-url: https://rh.suaempresa.com
+

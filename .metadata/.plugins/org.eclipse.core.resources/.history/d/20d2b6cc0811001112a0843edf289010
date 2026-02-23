@@ -1,0 +1,114 @@
+package br.com.batch.senac.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class MigracaoService {
+
+    private final RhApiClient apiClient;
+    private final ColaboradorRepository colaboradorRepository;
+    private final ExecutorService executor;
+
+    public MigracaoService(
+            RhApiClient apiClient,
+            ColaboradorRepository colaboradorRepository,
+            ExecutorService executor) {
+
+        this.apiClient = apiClient;
+        this.colaboradorRepository = colaboradorRepository;
+        this.executor = executor;
+    }
+
+    public void executarMigracao() {
+
+        List<ColaboradorResumoDTO> colaboradores =
+                apiClient.buscarColaboradores();
+
+        List<List<ColaboradorResumoDTO>> chunks =
+                partition(colaboradores, 200);
+
+        for (List<ColaboradorResumoDTO> chunk : chunks) {
+            processarChunk(chunk);
+        }
+    }
+
+    private void processarChunk(List<ColaboradorResumoDTO> chunk) {
+
+        List<CompletableFuture<Colaborador>> futures = new ArrayList<>();
+
+        for (ColaboradorResumoDTO resumo : chunk) {
+            futures.add(
+                    CompletableFuture.supplyAsync(
+                            () -> processarColaborador(resumo),
+                            executor
+                    )
+            );
+        }
+
+        List<Colaborador> colaboradores = new ArrayList<>();
+
+        for (CompletableFuture<Colaborador> future : futures) {
+            colaboradores.add(future.join());
+        }
+
+        colaboradorRepository.saveAll(colaboradores);
+    }
+
+    private Colaborador processarColaborador(ColaboradorResumoDTO resumo) {
+
+        CompletableFuture<PessoaisDTO> pessoais =
+                apiClient.buscarPessoais(resumo.getId());
+
+        CompletableFuture<BancariosDTO> bancarios =
+                apiClient.buscarBancarios(resumo.getId());
+
+        CompletableFuture<UnidadeDTO> unidade =
+                apiClient.buscarUnidade(resumo.getIdUnidade());
+
+        CompletableFuture<LocalTrabalhoDTO> local =
+                apiClient.buscarLocalTrabalho(resumo.getId());
+
+        CompletableFuture.allOf(pessoais, bancarios, unidade, local).join();
+
+        return montarEntity(
+                resumo,
+                pessoais.join(),
+                bancarios.join(),
+                unidade.join(),
+                local.join()
+        );
+    }
+
+    private Colaborador montarEntity(
+            ColaboradorResumoDTO resumo,
+            PessoaisDTO pessoais,
+            BancariosDTO bancarios,
+            UnidadeDTO unidade,
+            LocalTrabalhoDTO localDto
+    ) {
+
+        Colaborador c = new Colaborador();
+        c.setIdExterno(resumo.getId());
+        c.setNome(pessoais.getNome());
+        c.setCpf(pessoais.getCpf());
+        c.setBanco(bancarios.getBanco());
+        c.setAgencia(bancarios.getAgencia());
+        c.setUnidadeNome(unidade.getNome());
+        c.setEnderecoLocalTrabalho(localDto.getEndereco());
+
+        return c;
+    }
+
+    private <T> List<List<T>> partition(List<T> list, int size) {
+        List<List<T>> parts = new ArrayList<>();
+        for (int i = 0; i < list.size(); i += size) {
+            parts.add(list.subList(i, Math.min(i + size, list.size())));
+        }
+        return parts;
+    }
+}

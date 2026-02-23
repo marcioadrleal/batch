@@ -1,0 +1,7 @@
+package br.com.batch.senac.dto;
+
+public class DependentesDto {
+	
+	private Long nro_dependentes_ir;
+
+}

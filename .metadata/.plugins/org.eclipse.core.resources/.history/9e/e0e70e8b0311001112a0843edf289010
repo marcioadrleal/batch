@@ -1,0 +1,13 @@
+package br.com.batch.senac.dto;
+
+public class DadosBancariosDto {
+	
+	private String codigoBanco;
+	private String codigoAgencia;
+	private String contaNumero;
+	private String contaDigito;
+	private String nomeBanco;
+	
+	
+
+}

@@ -1,0 +1,5 @@
+package br.com.batch.senac.dto;
+
+public class CargosDto {
+
+}
