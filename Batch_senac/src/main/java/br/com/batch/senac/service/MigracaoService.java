@@ -62,7 +62,10 @@ public class MigracaoService {
             colaboradores.add(future.join());
         }
 
+        /* Salvar colaboradores e local de trabalho
         colaboradorRepository.saveAll(colaboradores);
+        */ 
+        
     }
 
     private Colaborador processarColaborador(ColaboradorResumoDTO resumo) {
@@ -84,17 +87,20 @@ public class MigracaoService {
         
 
         CompletableFuture.allOf(pessoais, bancarios, unidade, dependente , cargo ).join();
+        
+        return null;
 
-        return montarEntity(
+      /*  return montarEntity(
                 resumo,
                 pessoais.join(),
                 bancarios.join(),
                 unidade.join(),
-                local.join()
-        );
+                localt.join()
+        ); */
     }
 
-    private Colaborador montarEntity(
+  /* montar entity de colaborador e local de trabalho 
+   * private Colaborador montarEntity(
             ColaboradorResumoDTO resumo,
             PessoaisDTO pessoais,
             BancariosDTO bancarios,
@@ -113,7 +119,7 @@ public class MigracaoService {
 
         return c;
     }
-
+ */
     private <T> List<List<T>> partition(List<T> list, int size) {
         List<List<T>> parts = new ArrayList<>();
         for (int i = 0; i < list.size(); i += size) {
