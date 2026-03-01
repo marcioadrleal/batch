@@ -1,15 +1,17 @@
 spring:
   application:
        name: Batch_Senac
-
+  datasource:
+    url: jdbc:oracle:thin:@//dev-ebsdb01.senac.corp:1521/DEBS
+    username: APPL$INTGEF
+    password: senac01
+    driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     properties:
+       open-in-view: false
        hibernate:
           jdbc:
-            batch_size: 100
-       open-in-view: false      
-
+             batch_size: 100
 benner:
   api:
-    base-url: https://rh.suaempresa.com
-
+    base-url: https://senac-sp.bennercloud.com.br/RH_HOMOLOG

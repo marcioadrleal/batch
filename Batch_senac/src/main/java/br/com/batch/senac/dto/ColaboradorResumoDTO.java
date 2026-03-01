@@ -18,13 +18,13 @@ public class ColaboradorResumoDTO {
 	private String email;
 	private String sigla;
 	private String situacao;
-	private String codigoDdd;
+	private Long codigoDdd;
 	private String telefone;
-	private String celularDdd;
+	private Long celularDdd;
 	private String celularNumero;
 	private Date dataAtualizacao;
 	private String dcCargo;
-	private String nroPis;
+	private Long nroPis;
 	private Long idCargo;
 	private String tipoColab;
 	private String paisNascimento;
@@ -154,11 +154,11 @@ public class ColaboradorResumoDTO {
 		this.situacao = situacao;
 	}
 
-	public String getCodigoDdd() {
+	public Long getCodigoDdd() {
 		return codigoDdd;
 	}
 
-	public void setCodigoDdd(String codigoDdd) {
+	public void setCodigoDdd(Long codigoDdd) {
 		this.codigoDdd = codigoDdd;
 	}
 
@@ -170,11 +170,11 @@ public class ColaboradorResumoDTO {
 		this.telefone = telefone;
 	}
 
-	public String getCelularDdd() {
+	public Long getCelularDdd() {
 		return celularDdd;
 	}
 
-	public void setCelularDdd(String celularDdd) {
+	public void setCelularDdd(Long celularDdd) {
 		this.celularDdd = celularDdd;
 	}
 
@@ -202,11 +202,11 @@ public class ColaboradorResumoDTO {
 		this.dcCargo = dcCargo;
 	}
 
-	public String getNroPis() {
+	public Long getNroPis() {
 		return nroPis;
 	}
 
-	public void setNroPis(String nroPis) {
+	public void setNroPis(Long nroPis) {
 		this.nroPis = nroPis;
 	}
 
